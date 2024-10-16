@@ -3,6 +3,8 @@ import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import GraanaLogo from '../asset/GraanaLogo.svg';
+import Hamburger from '../asset/Hamburger.svg';
+import GraanaLogoResponsive from '../asset/GraanaLogoResponsive.svg';
 import { FaRegUserCircle } from "react-icons/fa";
 import { RxHamburgerMenu } from 'react-icons/rx';
 import Box from '@mui/material/Box';
@@ -67,16 +69,16 @@ const Navbar = () => {
     <React.Fragment>
       <div className="border hidden py-4 md:flex items-center">
         {/* Logo and desktop links */}
-        <div className="cursor-pointer rounded-lg hover:bg-slate-100 px-2 xl:ml-[5%] ml-2">
+        <div className=" border cursor-pointer rounded-lg hover:bg-slate-100 px-2 xl:ml-[5%] ml-2">
           <Image
             src={GraanaLogo}
             alt="GraanaLogo"
             height={75}
             width={200}
-            className="w-[200px] h-auto sm:w-[180px] sm:h-auto md:w-[200px] md:h-auto"
+            className="w-[200px] border h-auto sm:w-[180px] sm:h-auto md:w-[200px] md:h-auto"
           />
         </div>
-        <div className="ml-24 flex items-center gap-5 font-bold">
+        <div className="border ml-[7%] flex items-center gap-5 font-bold">
           {/* Navigation links */}
           <div
             className="relative"
@@ -164,7 +166,7 @@ const Navbar = () => {
           </div>
           {/* Similar structure for other navigation items */}
         </div>
-        <div className="ml-28 flex items-center gap-10">
+        <div className="ml-[20%] mr-5 flex items-center gap-10">
           <h1 className="lg:text-[1.1rem] text-[0.8rem] font-semibold">Wanted</h1>
           <div className="lg:text-[1.1rem] text-[0.8rem]">
             <FaRegUserCircle />
@@ -173,13 +175,14 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Drawer */}
-      <div className=" absolute md:hidden inline-block">
+      <div className="  w-full absolute md:hidden flex items-center ">
         <Button className='text-white text-xl ' onClick={toggleDrawer(true)}>
-          <RxHamburgerMenu />
+         <Image src={Hamburger} width={20} height={20} alt='no_img'/>
         </Button>
         <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
           {DrawerList}
         </Drawer>
+        <Image src={GraanaLogoResponsive} width={100} height={100} alt='no_img' className='ml-[35%]'/>
       </div>
     </React.Fragment>
   );
